@@ -1,0 +1,15 @@
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+Command: vcs -full64 -sverilog -ntb_opts uvm -debug_access+all -kdb -f filelist.f \
+-l compile.log
+
+Error-[P1ARGS-CANTOPN-F] Cannot open file
+  Unable to open 'filelist.f' due to 'No such file or directory'.
+  Please fix the reason mentioned above and continue.
+
+CPU time: .051 seconds to compile

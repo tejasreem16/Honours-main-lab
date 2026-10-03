@@ -1,0 +1,21 @@
+# Simulation / synthesis outputs
+run/*
+!run/.gitkeep
+!run/README.md
+
+# Common EDA tool junk
+*.vcd
+*.fst
+*.wlf
+*.log
+*.jou
+work/
+transcript
+xsim.dir/
+*.pb
+*.jou
+
+# Editor/OS junk
+.DS_Store
+*.swp
+.vscode/

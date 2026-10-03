@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.v   text
+*.sv  text
+*.vh  text
+*.svh text
+*.yaml text
+*.md  text
