@@ -1,0 +1,17 @@
+peripheral: SPI_Controller
+base_address: 0x3000_1000
+registers:
+  - {offset: 0x00, name: SPI_CTRL,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "0", name: EN}, {bits: "1", name: CPOL}, {bits: "2", name: CPHA}, {bits: "3", name: IRQ_EN}]}
+  - {offset: 0x04, name: SPI_CLKDIV,  access: RW, reset: 0x00000004, tag: CONTROL,
+     fields: [{bits: "7:0", name: DIV}]}
+  - {offset: 0x08, name: SPI_CS_CTRL, access: RW, reset: 0x00000001, tag: CONTROL,
+     fields: [{bits: "0", name: CS_N}]}
+  - {offset: 0x0C, name: SPI_TXDATA,  access: WO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: DATA}]}
+  - {offset: 0x10, name: SPI_RXDATA,  access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: DATA}]}
+  - {offset: 0x14, name: SPI_STATUS,  access: RO, reset: 0x00000001, tag: DATA,
+     fields: [{bits: "0", name: DONE}, {bits: "1", name: BUSY}, {bits: "2", name: OVERRUN}]}
+  - {offset: 0x18, name: SPI_IRQ_CLR, access: WO, reset: null, tag: CONTROL,
+     fields: [{bits: "0", name: DONE_CLR}, {bits: "1", name: OVR_CLR}]}

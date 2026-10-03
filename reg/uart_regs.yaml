@@ -1,0 +1,15 @@
+peripheral: UART
+base_address: 0x2000_0000
+registers:
+  - {offset: 0x00, name: UART_CTRL,     access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "0",   name: EN},        {bits: "1", name: TX_IRQ_EN}, {bits: "2", name: RX_IRQ_EN}]}
+  - {offset: 0x04, name: UART_BAUD_DIV, access: RW, reset: 0x00000001, tag: CONTROL,
+     fields: [{bits: "15:0", name: DIV}]}
+  - {offset: 0x08, name: UART_STATUS,   access: RO, reset: 0x00000002, tag: DATA,
+     fields: [{bits: "0", name: TX_BUSY}, {bits: "1", name: TX_EMPTY}, {bits: "2", name: RX_VALID}, {bits: "3", name: FRAME_ERR}]}
+  - {offset: 0x0C, name: UART_TXDATA,   access: WO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: DATA}]}
+  - {offset: 0x10, name: UART_RXDATA,   access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: DATA}]}
+  - {offset: 0x14, name: UART_IRQ_CLR,  access: WO, reset: null, tag: CONTROL,
+     fields: [{bits: "0", name: TX_CLR}, {bits: "1", name: RX_CLR}, {bits: "2", name: ERR_CLR}]}

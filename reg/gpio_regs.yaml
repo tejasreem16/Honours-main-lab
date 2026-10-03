@@ -1,0 +1,17 @@
+peripheral: GPIO
+base_address: 0x2000_2000
+registers:
+  - {offset: 0x00, name: GPIO_DIR,       access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "7:0", name: DIR}]}
+  - {offset: 0x04, name: GPIO_OUT,       access: RW, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: OUT}]}
+  - {offset: 0x08, name: GPIO_IN,        access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: IN}]}
+  - {offset: 0x0C, name: GPIO_INTCFG,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "7:0", name: EDGE_SEL}]}
+  - {offset: 0x10, name: GPIO_INT_EN,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "7:0", name: EN}]}
+  - {offset: 0x14, name: GPIO_INT_STAT,  access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "7:0", name: PEND}]}
+  - {offset: 0x18, name: GPIO_INT_CLR,   access: WO, reset: null, tag: CONTROL,
+     fields: [{bits: "7:0", name: CLR}]}

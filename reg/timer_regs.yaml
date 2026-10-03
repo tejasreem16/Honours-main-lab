@@ -1,0 +1,13 @@
+peripheral: Timer
+base_address: 0x2000_1000
+registers:
+  - {offset: 0x00, name: TIMER_CTRL,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "0", name: EN}, {bits: "1", name: AUTO_RELOAD}, {bits: "2", name: IRQ_EN}]}
+  - {offset: 0x04, name: TIMER_LOAD,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "31:0", name: LOAD}]}
+  - {offset: 0x08, name: TIMER_COUNT,   access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "31:0", name: COUNT}]}
+  - {offset: 0x0C, name: TIMER_STATUS,  access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "0", name: OVERFLOW}]}
+  - {offset: 0x10, name: TIMER_IRQ_CLR, access: WO, reset: null, tag: CONTROL,
+     fields: [{bits: "0", name: OVF_CLR}]}

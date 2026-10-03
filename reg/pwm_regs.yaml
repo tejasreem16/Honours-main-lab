@@ -1,0 +1,15 @@
+peripheral: PWM_Generator
+base_address: 0x3000_0000
+registers:
+  - {offset: 0x00, name: PWM_CTRL,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "0", name: EN}, {bits: "1", name: IRQ_EN}]}
+  - {offset: 0x04, name: PWM_PERIOD,  access: RW, reset: 0x0000FFFF, tag: CONTROL,
+     fields: [{bits: "15:0", name: PERIOD}]}
+  - {offset: 0x08, name: PWM_DUTY,    access: RW, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "15:0", name: DUTY}]}
+  - {offset: 0x0C, name: PWM_STATUS,  access: RO, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "0", name: PERIOD_PEND}]}
+  - {offset: 0x10, name: PWM_IRQ_CLR, access: WO, reset: null, tag: CONTROL,
+     fields: [{bits: "0", name: CLR}]}
+constraints:
+  - "Firmware must ensure DUTY <= PERIOD (see doc/ARCHITECTURE.md Section 9.1, E3)"

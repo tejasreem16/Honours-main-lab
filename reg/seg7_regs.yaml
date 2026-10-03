@@ -1,0 +1,13 @@
+peripheral: Seven_Segment_Display_Controller
+base_address: 0x3000_2000
+registers:
+  - {offset: 0x00, name: SEG_CTRL,    access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "0", name: EN}, {bits: "15:4", name: REFDIV}]}
+  - {offset: 0x04, name: SEG_DATA,    access: RW, reset: 0x00000000, tag: DATA,
+     fields: [{bits: "15:0", name: VALUE}]}
+  - {offset: 0x08, name: SEG_DP_CTRL, access: RW, reset: 0x00000000, tag: CONTROL,
+     fields: [{bits: "3:0", name: DP_EN}]}
+  - {offset: 0x0C, name: SEG_STATUS,  access: RO, reset: 0x00000001, tag: DATA,
+     fields: [{bits: "0", name: ACTIVE}]}
+constraints:
+  - "VALUE nibbles 10-15 render as blank (see doc/ARCHITECTURE.md Section 9.1, E5)"
